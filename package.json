@@ -2,12 +2,14 @@
   "name": "ns-mpk-board",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dsmaga.github.io/ns-mpk-board",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest"
+    "test": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest",
+    "deploy": "next build && gh-pages -d out"
   },
   "dependencies": {
     "next": "14.2.3",
@@ -32,6 +34,7 @@
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "gh-pages": "^6.1.1",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
