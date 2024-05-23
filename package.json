@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest",
-    "deploy": "next build && gh-pages -d out"
+    "deploy": "npm run build && gh-pages -d out -t true"
   },
   "dependencies": {
     "next": "14.2.3",

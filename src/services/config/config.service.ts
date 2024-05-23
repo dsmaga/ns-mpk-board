@@ -7,6 +7,8 @@ export default class ConfigService {
   private static _instance: ConfigService;
   private static _storage: StorageInterface = global?.localStorage;
 
+  private static storageKey: string = 'ns_mpk_board_config';
+
   static get instance() {
     if (!ConfigService._instance) {
       ConfigService._instance = new ConfigService();
@@ -19,7 +21,8 @@ export default class ConfigService {
   }
 
   private constructor() {
-    const savedConfig = ConfigService._storage?.getItem('config') || null;
+    const savedConfig =
+      ConfigService._storage?.getItem(ConfigService.storageKey) || null;
     this.config =
       savedConfig === null
         ? configDefaults
@@ -31,7 +34,10 @@ export default class ConfigService {
   }
 
   saveConfig() {
-    ConfigService._storage?.setItem('config', JSON.stringify(this.config));
+    ConfigService._storage?.setItem(
+      ConfigService.storageKey,
+      JSON.stringify(this.config),
+    );
   }
 
   getProfile(uuid: string) {
